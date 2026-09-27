@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoryMC - Portal Staff</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-black text-neutral-200 min-h-screen flex flex-col justify-between font-['Inter'] selection:bg-white selection:text-black">
+
+    <!-- Navegación Superior -->
+    <nav class="bg-neutral-950 border-b border-neutral-800 px-6 py-4">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <a href="/">
+                    <img src="{{ url_for('static', filename='img/vorylogosinip.png') }}" alt="VoryMC" class="h-8">
+                </a>
+                <span class="text-xs bg-neutral-900 border border-neutral-800 text-neutral-400 px-2.5 py-0.5 rounded font-mono">PORTAL STAFF</span>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <div class="text-right">
+                    <span class="block text-sm font-semibold text-white">{{ username }}</span>
+                    <span class="block text-[10px] text-neutral-400 uppercase tracking-wider font-mono">{{ rango }}</span>
+                </div>
+                <a href="/logout" class="bg-neutral-900 hover:bg-neutral-800 text-neutral-300 border border-neutral-700 text-xs px-3 py-1.5 rounded transition flex items-center space-x-1">
+                    <i class="fa-solid fa-power-off"></i>
+                    <span>Cerrar Sesión</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal Staff -->
+    <main class="max-w-6xl mx-auto px-6 py-12 w-full flex-grow space-y-12">
+        
+        <!-- Bienvenida -->
+        <div class="bg-neutral-950 border border-neutral-800 p-8 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div>
+                <h1 class="text-3xl font-bold text-white mb-1 font-['Fredoka']">Bienvenido al Panel, {{ username }} 👋</h1>
+                <p class="text-neutral-400 text-sm">Portal administrativo e información para el equipo de VoryMC.</p>
+            </div>
+            <span class="bg-white text-black font-extrabold text-xs px-3 py-1.5 rounded-lg uppercase tracking-widest font-mono">
+                Rango: {{ rango }}
+            </span>
+        </div>
+
+        <!-- Accesos Rápidos -->
+        <section>
+            <h2 class="text-xl font-bold text-white mb-6 font-['Fredoka'] flex items-center space-x-2">
+                <i class="fa-solid fa-bolt text-neutral-400"></i>
+                <span>Accesos Rápidos</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Link Formulario Staff -->
+                <a href="https://forms.gle/TwjQY5r4p2LjWsbr6" target="_blank" rel="noopener noreferrer" 
+                   class="bg-neutral-950 border border-neutral-800 hover:border-neutral-600 p-6 rounded-2xl transition group">
+                    <div class="w-12 h-12 bg-neutral-900 border border-neutral-800 rounded-xl flex items-center justify-center text-white text-xl mb-4 group-hover:bg-white group-hover:text-black transition">
+                        <i class="fa-solid fa-file-signature"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">Postulaciones Staff</h3>
+                    <p class="text-xs text-neutral-400 leading-relaxed">Revisar respuestas del formulario de Google para postulantes.</p>
+                </a>
+
+                <!-- Link Tienda Tebex -->
+                <a href="https://vorymc-store.tebex.io" target="_blank" rel="noopener noreferrer" 
+                   class="bg-neutral-950 border border-neutral-800 hover:border-neutral-600 p-6 rounded-2xl transition group">
+                    <div class="w-12 h-12 bg-neutral-900 border border-neutral-800 rounded-xl flex items-center justify-center text-white text-xl mb-4 group-hover:bg-white group-hover:text-black transition">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">Tienda Oficial</h3>
+                    <p class="text-xs text-neutral-400 leading-relaxed">Ver y verificar paquetes activos de la tienda Tebex.</p>
+                </a>
+
+                <!-- Link Discord -->
+                <a href="https://discord.gg/fwxWPYWNfF" target="_blank" rel="noopener noreferrer" 
+                   class="bg-neutral-950 border border-neutral-800 hover:border-neutral-600 p-6 rounded-2xl transition group">
+                    <div class="w-12 h-12 bg-neutral-900 border border-neutral-800 rounded-xl flex items-center justify-center text-white text-xl mb-4 group-hover:bg-white group-hover:text-black transition">
+                        <i class="fa-brands fa-discord"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">Discord Oficial</h3>
+                    <p class="text-xs text-neutral-400 leading-relaxed">Ir al canal privado de moderación y soporte técnico.</p>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- Sección de Imagen Clicable -->
+        <section class="bg-neutral-950 border border-neutral-800 p-6 md:p-8 rounded-2xl">
+            
+
+            <!-- Contorno y Enlace con Imagen -->
+            <div class="border border-neutral-800 bg-neutral-900/50 p-4 rounded-xl flex justify-center items-center">
+                
+                <!-- Reemplaza "https://TU-LINK-AQUI.com" y "nombre_de_tu_imagen.png" con los datos reales -->
+                <a href="https://docs.google.com/spreadsheets/d/1UtHsIzi5KF4eCio1XP-4MOW1s9AZ2BrpwH1rJTzti7o/edit?usp=sharing" target="_blank" class="block w-full text-center">
+                    <img src="{{ url_for('static', filename='img/snc.png') }}" 
+                         alt="Guia de Sanciones" 
+                         class="max-w-full h-auto mx-auto rounded-lg shadow-lg hover:opacity-90 transition cursor-pointer">
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-neutral-900 py-6 text-center text-xs text-neutral-600">
+        <p>© 2026 VoryMC • Sistema de Administración Interno</p>
+    </footer>
+
+</body>
+</html>
